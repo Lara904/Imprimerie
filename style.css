@@ -1,0 +1,212 @@
+:root {
+    --primary-color: #232f3e;
+    --accent-color: #00bcd4;
+    --text-color: #333;
+    --bg-color: #f4f7fa;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* En-tête */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 4px 10px var(--shadow);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus-visible {
+    color: var(--accent-color);
+    outline: none;
+}
+
+/* Carrousel */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Boutons du carrousel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:focus-visible {
+    outline: 2px solid var(--accent-color);
+    background-color: rgba(0, 188, 212, 0.9);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 188, 212, 0.8);
+}
+
+/* Sections générales */
+section {
+    padding: 60px 40px;
+    background-color: var(--white);
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.service,
+.realisation {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.service img,
+.realisation img,
+#atelier img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.service img:hover,
+.realisation img:hover,
+#atelier img:hover {
+    transform: scale(1.05);
+}
+
+/* Pied de page */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 -4px 10px var(--shadow);
+}
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+section:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .service,
+    .realisation {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service img,
+    .realisation img,
+    #atelier img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+}
